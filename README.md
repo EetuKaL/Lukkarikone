@@ -1,25 +1,31 @@
 # Lukkarikone
 Hae suoraan oman ryhmän tiedot lukkarikoneesta.
 
-## Selainlaajennus
+# Ryhmän vaihtaminen
+1. Avaa tiedosto [src/content/lukkarikone.js](./src/content/lukkarikone.js#3).
+2. Etsi rivi:
 
-Projektin rakenne on Chrome- ja Chromium-pohjaisille selaimille tarkoitettu Manifest V3 -laajennus:
+	```javascript
+	const groupName = "ATIS26K";
+	```
 
-```text
-manifest.json
-src/
-	content/lukkarikone.js        # hakee ja lisää ryhmän automaattisesti
-```
+3. Vaihda `ATIS26K` toiseksi ryhmän nimeksi, esimerkiksi `ESIMERKKI-RYHMÄ-TUNNUS`:
 
-Ryhmän nimi vaihdetaan tiedoston `src/content/lukkarikone.js` alussa olevan
-`groupName`-muuttujan arvoksi. Laajennus toimii vain osoitteessa
-`https://lukkarit.centria.fi/#/schedule`.
+	```javascript
+	const groupName = "ESIMERKKI-RYHMÄ-TUNNUS";
+	```
 
-### Kehitys
+4. Päivitä laajennus selaimen laajennussivulla.
+5. Avaa tai lataa uudelleen Lukkarikoneen sivu.
 
-1. Avaa selaimen laajennussivu, esimerkiksi `chrome://extensions`.
+# ASENNUS CHROME
+1. Avaa chromessa: `chrome://extensions`.
 2. Ota kehittäjätila käyttöön.
 3. Valitse **Lataa pakkaamaton** ja valitse tämä projektikansio.
-4. Avaa Lukkarikoneen sivu ja laajennuksen popup.
+4. Avaa Lukkarikoneen sivu.
 
-Lukkarikoneen HTML-rakenne voi vaihdella. Sivukohtainen sovitus tehdään tiedostossa `src/content/lukkarikone.js`.
+# ASENNUS FIREFOX
+1. Avaa firefoxissa: about:debugging#/runtime/this-firefox
+2. Valitse Load Temporary Add-on...
+3. Valitse projektin manifest.json
+4. Avaa Lukkarikoneen sivu
