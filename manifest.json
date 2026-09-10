@@ -1,0 +1,13 @@
+{
+  "manifest_version": 3,
+  "name": "Lukkarikone",
+  "version": "0.1.0",
+  "description": "Hae oman ryhmän tiedot Lukkarikoneesta.",
+  "content_scripts": [
+    {
+      "matches": ["https://lukkarit.centria.fi/*"],
+      "js": ["src/content/lukkarikone.js"],
+      "run_at": "document_idle"
+    }
+  ]
+}
