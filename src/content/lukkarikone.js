@@ -1,6 +1,6 @@
 (() => {
   const scheduleUrl = "https://lukkarit.centria.fi/#/schedule";
-  const groupName = "ATIS26K";
+  
 
   if (window.location.href !== scheduleUrl) {
     return;
@@ -23,6 +23,9 @@
     });
 
   const initialize = async () => {
+    const { groupName = "" } = await browser.storage.sync.get(
+      "groupName"
+    );
     const input = await waitForElement(() =>
       document.querySelector('input[placeholder^="Anna hakusana"]')
     );
@@ -48,6 +51,18 @@
       )
     );
     addButton.click();
+    let hideButton;
+    let attempts = 0;
+    while (!hideButton && attempts < 3) {
+     hideButton = [...document.querySelectorAll("button")].find(btn => btn.textContent.trim().includes("Piilota hakutulokset"));
+    if (hideButton) {
+      hideButton.click();
+      return;s
+    }
+    console.log("Hide button not found, retrying...");
+    await new Promise((resolve) => setTimeout(resolve, 300));
+    attempts++;
+  }
   };
 
   initialize();

@@ -3,6 +3,19 @@
   "name": "Lukkarikone",
   "version": "0.1.0",
   "description": "Hae oman ryhmän tiedot Lukkarikoneesta.",
+  "permissions": ["storage"],
+  "action": {
+    "default_title": "Lukkarikoneen ryhmä",
+    "default_popup": "src/popup/popup.html"
+  },
+  "browser_specific_settings": {
+    "gecko": {
+      "id": "lukkarikone_ryhmahaku@example.com",
+      "data_collection_permissions": {
+        "required": ["none"]
+      }
+    }
+  },
   "content_scripts": [
     {
       "matches": ["https://lukkarit.centria.fi/*"],
